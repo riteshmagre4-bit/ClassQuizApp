@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ClassQuizApp - Projector Mode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="gradient-bg projector-bg">
+
+  <!-- BIG PIN DISPLAY -->
+  <div class="projector-pin">
+    PIN: <span id="projectorPin">----</span>
+  </div>
+
+  <!-- QUIZ TITLE -->
+  <div id="projectorQuizTitle" class="projector-title"></div>
+
+  <!-- QUESTION -->
+  <div id="projectorQuestion" class="projector-question">Waiting...</div>
+
+  <!-- OPTIONS -->
+  <div id="projectorOptions" class="projector-options"></div>
+
+  <!-- ANSWER STATS -->
+  <div id="projectorAnswerStats" class="projector-stats hidden"></div>
+
+  <!-- LEADERBOARD -->
+  <div id="projectorLeaderboard" class="projector-leaderboard hidden"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="projector.js"></script>
+</body>
+</html>

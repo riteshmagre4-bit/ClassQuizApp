@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ClassQuizApp - HOD Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="gradient-bg">
+  <div class="teacher-container glass">
+    <h1>HOD Dashboard</h1>
+    <p>Summary of all teachers' quizzes in the department.</p>
+
+    <!-- LOGIN SECTION -->
+    <section id="hodLoginSection">
+      <div class="join-card">
+        <h2>HOD Login</h2>
+        <input type="text" id="hodUsername" placeholder="Username" />
+        <input type="password" id="hodPassword" placeholder="Password" />
+        <button id="hodLoginBtn">Login</button>
+        <p id="hodLoginStatus"></p>
+      </div>
+    </section>
+
+    <!-- DASHBOARD SECTION -->
+    <section id="hodDashboardSection" class="hidden">
+      <div class="top-bar">
+        <span id="hodWelcomeLabel"></span>
+        <button id="hodLogoutBtn">Logout</button>
+      </div>
+
+      <!-- Filters -->
+      <div class="panel">
+        <h2>Filters</h2>
+        <div class="flex-row">
+          <div>
+            <label>From Date:</label>
+            <input type="date" id="filterFrom" />
+          </div>
+          <div>
+            <label>To Date:</label>
+            <input type="date" id="filterTo" />
+          </div>
+          <div>
+            <label>Teacher:</label>
+            <select id="filterTeacher">
+              <option value="">All Teachers</option>
+            </select>
+          </div>
+        </div>
+        <button id="applyFiltersBtn">Apply Filters</button>
+        <button id="downloadAllBtn">Download All Questions (CSV)</button>
+        <button id="downloadTeacherBtn">Download Teacher Questions (CSV)</button>
+      </div>
+      <!-- Change Password Panel -->
+      <div class="panel">
+        <h2>Change HOD Password</h2>
+        <p class="small-muted">
+          Default credentials are hod / hod123. Use this form to set a new password.
+        </p>
+        <div class="flex-row">
+          <div>
+            <label>Current Password:</label><br />
+            <input type="password" id="hodOldPassword" />
+          </div>
+          <div>
+            <label>New Password:</label><br />
+            <input type="password" id="hodNewPassword" />
+          </div>
+          <div>
+            <label>Confirm New Password:</label><br />
+            <input type="password" id="hodConfirmPassword" />
+          </div>
+        </div>
+        <button id="hodChangePasswordBtn">Update Password</button>
+        <p id="hodChangePasswordStatus"></p>
+      </div>
+
+      <!-- Top summary cards -->
+      <div class="flex-row">
+        <div class="panel">
+          <h2>Total Teachers</h2>
+          <p class="stat-big" id="statTeachers">-</p>
+        </div>
+        <div class="panel">
+          <h2>Total Quizzes (filtered)</h2>
+          <p class="stat-big" id="statQuizzes">-</p>
+        </div>
+        <div class="panel">
+          <h2>Total Questions (filtered)</h2>
+          <p class="stat-big" id="statQuestions">-</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="panel">
+        <h2>Quizzes & Questions per Teacher</h2>
+        <canvas id="teacherQuizChart"></canvas>
+      </div>
+
+      <!-- Latest quizzes -->
+      <div class="panel">
+        <h2>Latest Quizzes (filtered)</h2>
+        <table class="hod-table">
+          <thead>
+            <tr>
+              <th>Quiz Title</th>
+              <th>Teacher</th>
+              <th>Questions</th>
+              <th>Created At</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody id="latestQuizzesBody">
+            <tr><td colspan="5">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Teacher stats -->
+      <div class="panel">
+        <h2>Teacher-wise Summary (filtered)</h2>
+        <table class="hod-table">
+          <thead>
+            <tr>
+              <th>Teacher</th>
+              <th>Email</th>
+              <th>Quizzes</th>
+              <th>Questions</th>
+            </tr>
+          </thead>
+          <tbody id="teacherStatsBody">
+            <tr><td colspan="4">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="hod.js"></script>
+</body>
+</html>

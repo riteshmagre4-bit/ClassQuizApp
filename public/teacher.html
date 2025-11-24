@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ClassQuizApp - Teacher</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="gradient-bg">
+  <div class="teacher-container glass">
+    <h1>Teacher Panel</h1>
+
+    <!-- Auth Section -->
+    <section id="authSection">
+      <div class="tabs">
+        <button class="tab active" data-tab="loginTab">Login</button>
+        <button class="tab" data-tab="registerTab">Register</button>
+      </div>
+
+      <div id="loginTab" class="tab-content">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <button id="loginBtn">Login</button>
+        <p id="loginStatus"></p>
+      </div>
+
+      <div id="registerTab" class="tab-content hidden">
+        <h2>Register</h2>
+        <input type="text" id="regName" placeholder="Full Name" />
+        <input type="email" id="regEmail" placeholder="Email" />
+        <input type="password" id="regPassword" placeholder="Password" />
+        <button id="registerBtn">Register</button>
+        <p id="registerStatus"></p>
+      </div>
+    </section>
+
+    <!-- Dashboard (after login) -->
+    <section id="dashboardSection" class="hidden">
+      <div class="top-bar">
+        <span id="teacherNameDisplay"></span>
+        <button id="logoutBtn">Logout</button>
+      </div>
+
+      <div class="flex-row">
+        <!-- My Quizzes -->
+        <div class="panel">
+          <h2>My Quizzes</h2>
+          <p>Start a live session from here; controls will open in a separate window.</p>
+          <ul id="quizList"></ul>
+        </div>
+
+        <!-- Quiz Builder -->
+        <div class="panel">
+          <h2>Quiz Builder</h2>
+          <p id="editModeLabel" class="edit-label hidden">
+            Editing existing quiz. Click "Cancel Edit" to create a new one.
+          </p>
+          <input type="text" id="quizTitle" placeholder="Quiz Title" />
+          <div id="questionsContainer"></div>
+          <button id="addQuestionBtn">Add Question</button>
+          <button id="saveQuizBtn">Save Quiz</button>
+          <button id="cancelEditBtn" class="secondary-btn hidden">Cancel Edit</button>
+          <p id="quizSaveStatus"></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="teacher.js"></script>
+</body>
+</html>

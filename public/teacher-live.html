@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ClassQuizApp - Live Classroom</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="gradient-bg">
+  <div class="teacher-container glass">
+    <div class="top-bar">
+      <button id="backToDashboardBtn" class="secondary-btn">&larr; Back to Dashboard</button>
+      <span>Live Classroom Control</span>
+    </div>
+    <p>This page controls a single live quiz session. It is opened from the Teacher Dashboard.</p>
+
+    <!-- Quiz info -->
+    <div class="panel">
+      <h2>Current Live Quiz</h2>
+      <!-- BIG centered PIN -->
+<div class="pin-banner">
+  <span id="livePinDisplay">----</span>
+</div>
+
+<!-- Single row information bar -->
+<div class="info-row">
+  <div class="info-item">
+    <strong>Title:</strong>
+    <span id="liveTitleDisplay">-</span>
+  </div>
+
+  <div class="info-item">
+    <strong>Total Questions:</strong>
+    <span id="totalQuestionsDisplay">-</span>
+  </div>
+
+  <div class="info-item">
+    <strong>Total Students:</strong>
+    <span id="totalStudentsDisplay">0</span>
+  </div>
+
+  <div class="info-item">
+    <strong>Timer:</strong>
+    <input type="number" id="timerSecondsInput" value="20" min="5" max="120" class="timer-input" />
+  </div>
+</div>
+
+    </div>
+
+    <!-- Three-column live layout -->
+    <div class="flex-row live-layout">
+      <div class="panel live-panel">
+        <h2>Questions</h2>
+        <p class="small-muted">Use Start / End buttons to control each question.</p>
+        <div id="liveQuestionsControl"></div>
+      </div>
+
+      <div class="panel live-panel">
+        <h2>Players</h2>
+        <ul id="livePlayers"></ul>
+      </div>
+
+      <div class="panel live-panel">
+        <h2>Leaderboard</h2>
+        <ol id="leaderboard"></ol>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="teacher-live.js"></script>
+</body>
+</html>

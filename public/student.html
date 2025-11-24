@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ClassQuizApp - Student</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="gradient-bg">
+  <div class="student-container glass quiz-glass">
+    <h1 class="app-title">Student</h1>
+
+    <!-- JOIN SECTION -->
+    <section id="joinSection">
+      <div class="join-card">
+        <input type="text" id="studentName" placeholder="Your name" />
+        <input type="text" id="pinInput" placeholder="4-digit PIN" />
+        <button id="joinBtn">Join Quiz</button>
+        <p id="joinStatus"></p>
+      </div>
+    </section>
+
+    <!-- QUIZ SECTION -->
+    <section id="quizSection" class="hidden">
+      <!-- Top header: avatar, name, PIN, timer -->
+      <div class="student-header">
+        <div class="student-id">
+          <div class="avatar-circle" id="myAvatarCircle">🙂</div>
+          <div class="student-namepin">
+            <div id="myNameLabel" class="my-name"></div>
+            <small id="myPinLabel" class="my-pin"></small>
+          </div>
+        </div>
+        <div id="timerDisplay" class="timer-pill"></div>
+      </div>
+ <div class="progress-wrap">
+        <div id="questionProgressBar" class="progress-bar-inner"></div>
+      </div>
+      <!-- Question card -->
+      <div id="questionArea" class="hidden" style="width: 100%; max-width: 500px; margin: auto;">
+
+        <div class="question-text-wrap">
+          <h2 id="quizTitle"></h2>
+          <h3 id="questionText"></h3>
+        </div>
+        <div id="optionsContainer" class="options-grid"></div>
+      </div>
+
+      <p id="infoText" class="info-text">Waiting for teacher to start...</p>
+    </section>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="student.js"></script>
+</body>
+</html>
