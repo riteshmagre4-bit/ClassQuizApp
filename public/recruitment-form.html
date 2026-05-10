@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recruitment Google Form Builder</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="gradient-bg">
+  <div class="teacher-container">
+    <h1>Recruitment Registration Form Builder</h1>
+    <p>Generate dynamic Google Form prefilled links for each candidate.</p>
+
+    <div class="panel">
+      <label for="formId">Google Form ID</label>
+      <input id="formId" type="text" placeholder="Example: 1FAIpQLSe..." />
+
+      <label for="nameEntry">Candidate Name field entry id</label>
+      <input id="nameEntry" type="text" placeholder="entry.123456" />
+
+      <label for="emailEntry">Candidate Email field entry id</label>
+      <input id="emailEntry" type="text" placeholder="entry.234567" />
+
+      <label for="roleEntry">Role field entry id</label>
+      <input id="roleEntry" type="text" placeholder="entry.345678" />
+
+      <label for="candidateName">Candidate Name</label>
+      <input id="candidateName" type="text" placeholder="John Doe" />
+
+      <label for="candidateEmail">Candidate Email</label>
+      <input id="candidateEmail" type="email" placeholder="john@company.com" />
+
+      <label for="candidateRole">Role Applied For</label>
+      <input id="candidateRole" type="text" placeholder="Software Engineer" />
+
+      <button id="generateLinkBtn">Generate Prefilled Link</button>
+      <button id="openFormBtn" type="button">Open Link</button>
+
+      <label for="generatedLink">Generated Link</label>
+      <input id="generatedLink" type="text" readonly />
+      <p id="formStatus"></p>
+
+      <small>
+        Tip: In Google Forms, click the 3-dot menu → <strong>Get pre-filled link</strong>,
+        fill sample values, then inspect URL to find each <code>entry.xxxxxx</code>.
+      </small>
+    </div>
+
+    <p><a class="big-btn hod" href="/">Back to Home</a></p>
+  </div>
+  <script src="/recruitment-form.js"></script>
+</body>
+</html>
